@@ -16,7 +16,8 @@ const { deleteTodo, markAsDone } = useTodo();
                 @click="markAsDone(todo)">
                 <v-icon>mdi-check</v-icon>
             </v-btn>
-            <p class="mx-2 font-weight-bold" :class="{ 'text-decoration-line-through': todo.status.done }"> {{ todo.name }}
+            <p class="mx-2 font-weight-bold" :class="{ 'text-decoration-line-through text-grey': todo.status.done }">
+                {{ todo.name }}
             </p>
         </div>
         <v-btn class="bg-red" v-if="isHovering" @click="deleteTodo(todo)" :disabled="todo.status.done">
