@@ -11,11 +11,11 @@ export function useTodo() {
     }
 
     const deleteTasks = (status) => {
-        todos.value = status ? todos.value.filter(todo => !todo.done) : []
+        todos.value = status ? todos.value.filter(todo => !todo.status.done) : []
     }
 
     const markAsDone = (todo) => {
-        todo.done = !todo.done
+        todo.status.done = !todo.status.done
     }
 
     const tasksCount = computed(() => {
@@ -23,7 +23,7 @@ export function useTodo() {
     })
 
     const tasksDoneCount = computed(() => {
-        return todos.value.filter((todo) => todo.done).length
+        return todos.value.filter((todo) => todo.status.done).length
     })
 
     return {

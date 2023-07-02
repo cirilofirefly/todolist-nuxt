@@ -3,17 +3,20 @@
 const task = ref({
     id: 0,
     name: '',
-    done: false
+    status: {
+        done: false
+    }
 })
 const input = ref(null)
 const { storeTodo } = useTodo();
 
 const addTodo = () => {
-    if (!task.value) return input.value.focus();
+    if (!task.value.name) return input.value.focus();
 
     storeTodo(task.value)
     task.value = {
         ...task.value,
+        id: Math.floor(100000 + Math.random() * 900000),
         name: ''
     }
 }

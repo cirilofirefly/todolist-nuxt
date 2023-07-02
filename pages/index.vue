@@ -13,7 +13,7 @@ useHead({
                     <Toolbar />
                     <v-col class="todo-container">
                         <template v-for="(todo, index) in todos" open-delay="200">
-                            <v-hover v-slot="{ isHovering, props }" :disabled="todo.done">
+                            <v-hover v-slot="{ isHovering, props }" :disabled="todo.status.done">
                                 <Todo v-bind="props" :todo="todo" :isHovering="isHovering" :key="index" />
                             </v-hover>
                         </template>
